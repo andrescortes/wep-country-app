@@ -1,1 +1,49 @@
-<p>country-page works!</p>
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    Wait for the countries to load
+  </div>
+</ng-template>
+
+<div *ngIf="country; else loading" class="card p-3">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center">Country: <strong>{{ country.name.common }}</strong></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3 class="text-center">Flag</h3>
+      <img [src]="country.flags.svg" class="img-thumbnail" [alt]="country.flags.alt">
+    </div>
+    <div class="col">
+      <h3 class="text-center">Information</h3>
+      <ul class="list-group text-center">
+        <li class="text-capitalize list-group-item">Population: {{ country.population | number }}</li>
+        <li class="text-capitalize list-group-item">Code: {{ country.cca3 }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-2 bg-secondary">
+    <div class="col card">
+      <h3 class="text-center">Traslations</h3>
+      <div class="d-flex flex-wrap justify-content-around card-body">
+        <span class="badge bg-primary mt-1">{{ country.translations['ara'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['bre'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['cym'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['deu'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['est'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['fin'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['fra'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['hrv'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['hun'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['ita'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['jpn'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['kor'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['per'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['urd'].common | uppercase}}</span>
+        <span class="badge bg-primary mt-1">{{ country.translations['tur'].common | uppercase}}</span>
+
+      </div>
+    </div>
+  </div>
+</div>
